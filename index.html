@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <script defer src="js/script.js"></script>
+    <title>Pingo</title>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="./pingo.png" alt="Pingo logo" width="100" />
+      <select class="select">
+        <option selected>Game difficulty</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="difficult">Difficult</option>
+      </select>
+    </header>
+    <div class="settings">
+      <button class="btn btn--start" type="button">Start</button>
+      <button class="btn btn--end" type="button">Pause</button>
+    </div>
+    <canvas id="pong" width="600" height="400"></canvas>
+  </body>
+</html>
