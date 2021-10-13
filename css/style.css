@@ -67,10 +67,21 @@ canvas {
   border-radius: 5px;
 }
 
+.btn:hover {
+  transform: scale(1.1);
+}
+
 .btn--start {
   margin-right: 0.5rem;
   background-color: var(--color-primary);
 }
+
 .btn--end {
+  margin-right: 0.5rem;
   background-color: rgba(48, 48, 207, 0.959);
+}
+
+.btn--restart {
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
 }

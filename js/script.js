@@ -2,8 +2,17 @@ const canvas = document.getElementById("pong");
 const ctx = canvas.getContext("2d");
 const startBtn = document.querySelector(".btn--start");
 const endBtn = document.querySelector(".btn--end");
+const restartBtn = document.querySelector(".btn--restart");
+const selectedDifficulty = document.querySelector(".select");
 
 let difficutly;
+const tar = {
+  difficutly: "easy",
+};
+
+const handl = function () {};
+
+const p1 = new Proxy(tar, handl);
 
 const ball = {
   x: canvas.width / 2,
@@ -28,7 +37,6 @@ const handler = {
 
 const proxy = new Proxy(ball, handler);
 
-const selectedDifficulty = document.querySelector(".select");
 selectedDifficulty.addEventListener("change", (e) => {
   difficutly = e.target.value;
   if (difficutly === "easy") {
@@ -63,6 +71,9 @@ const com = {
   score: 0,
   color: "WHITE",
 };
+
+const proxy1 = new Proxy(user, handler);
+const proxy2 = new Proxy(com, handler);
 
 const net = {
   x: (canvas.width - 2) / 2,
@@ -120,7 +131,7 @@ function drawNet() {
 
 function drawText(text, x, y) {
   ctx.fillStyle = "#FFF";
-  ctx.font = "75px fantasy";
+  ctx.font = "22px fantasy";
   ctx.fillText(text, x, y);
 }
 
@@ -177,9 +188,13 @@ function update() {
 function render() {
   drawRect(0, 0, canvas.width, canvas.height, "#f9861a");
 
-  drawText(user.score, canvas.width / 4, canvas.height / 5);
+  drawText("Player" + ": " + user.score, canvas.width / 4.8, canvas.height / 5);
 
-  drawText(com.score, (3 * canvas.width) / 4, canvas.height / 5);
+  drawText(
+    "Com" + ": " + com.score,
+    (3 * canvas.width) / 4.3,
+    canvas.height / 5
+  );
 
   drawNet();
 
@@ -198,6 +213,8 @@ let loop;
 let counting = 0;
 
 startBtn.addEventListener("click", () => {
+  console.log(difficutly);
+  if (!difficutly || difficutly === "Game difficulty") return;
   ++counting;
   if (counting === 1) {
     console.log(counting);
@@ -208,4 +225,19 @@ startBtn.addEventListener("click", () => {
 endBtn.addEventListener("click", () => {
   counting = 0;
   clearInterval(loop);
+});
+restartBtn.addEventListener("click", () => {
+  console.log("yy");
+  clearInterval(loop);
+  counting = 0;
+  difficutly = undefined;
+  selectedDifficulty.value = "Game difficulty";
+  proxy1.score = 0;
+  proxy1.x = 0;
+  proxy1.y = (canvas.height - 100) / 2;
+  proxy2.score = 0;
+  proxy2.x = canvas.width - 10;
+  proxy2.y = (canvas.height - 100) / 2;
+  resetBall();
+  game();
 });
