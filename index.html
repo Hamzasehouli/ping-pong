@@ -14,18 +14,45 @@
       <a href="/"
         ><img class="logo" src="./pingo.png" alt="Pingo logo" width="100"
       /></a>
-      <select class="select">
+      <!-- <select class="select">
         <option selected>Game difficulty</option>
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
         <option value="difficult">Difficult</option>
-      </select>
+      </select> -->
     </header>
-    <div class="settings">
+    <!-- <div class="settings">
       <button class="btn btn--start" type="button">Start</button>
       <button class="btn btn--end" type="button">Pause</button>
       <button class="btn btn--restart" type="button">Reset</button>
-    </div>
-    <canvas id="pong" width="600" height="400"></canvas>
+    </div> -->
+    <!-- <section class="main">
+      <div>
+        <select class="selectPlayer hidden">
+          <option selected>Select a player</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <img src="/images//067-without-bg.png" class="killer hidden" />
+      </div>
+      <canvas id="pong" width="600" height="400"></canvas>
+      <img src="/images/com-bg.png" class="killer hidden" />
+    </section> -->
+    <section class="init">
+      <div class="game-mode">
+        <button type="button" class="btn btn--start">Start</button>
+        <select class="select selectPlayer">
+          <option selected>Select a player</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <select class="select">
+          <option selected>Game difficulty</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="difficult">Difficult</option>
+        </select>
+      </div>
+    </section>
   </body>
 </html>
