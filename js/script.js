@@ -20,7 +20,7 @@ const ball = {
   radius: 10,
   velocityX: 5,
   velocityY: 5,
-  speed: 12,
+  speed: 7,
   color: "WHITE",
 };
 
@@ -42,35 +42,53 @@ selectedDifficulty.addEventListener("change", (e) => {
   if (difficutly === "easy") {
     proxy.velocityX = 5;
     proxy.velocityY = 5;
-    proxy.speed = 12;
+    proxy.speed = 7;
   } else if (difficutly === "medium") {
     proxy.velocityX = 7;
     proxy.velocityY = 7;
-    proxy.speed = 17;
+    proxy.speed = 10;
   } else {
-    proxy.velocityX = 15;
-    proxy.velocityY = 15;
-    proxy.speed = 20;
+    proxy.velocityX = 9;
+    proxy.velocityY = 9;
+    proxy.speed = 12;
   }
 });
-
 const user = {
-  x: 0,
-  y: (canvas.height - 100) / 2,
+  x: 0, // left side of canvas
+  y: (canvas.height - 100) / 2, // -100 the height of paddle
   width: 10,
   height: 100,
   score: 0,
   color: "WHITE",
 };
 
+// COM Paddle
 const com = {
-  x: canvas.width - 10,
-  y: (canvas.height - 100) / 2,
+  x: canvas.width - 10, // - width of paddle
+  y: (canvas.height - 100) / 2, // -100 the height of paddle
   width: 10,
   height: 100,
   score: 0,
   color: "WHITE",
 };
+
+// const user = {
+//   x: 0,
+//   y: (canvas.height - 100) / 2,
+//   width: 10,
+//   height: 100,
+//   score: 0,
+//   color: "WHITE",
+// };
+
+// const com = {
+//   x: canvas.width - 10,
+//   y: (canvas.height - 100) / 2,
+//   width: 10,
+//   height: 100,
+//   score: 0,
+//   color: "WHITE",
+// };
 
 const proxy1 = new Proxy(user, handler);
 const proxy2 = new Proxy(com, handler);
@@ -109,17 +127,17 @@ function resetBall() {
     ball.x = canvas.width / 2;
     ball.y = canvas.height / 2;
     ball.velocityX = -ball.velocityX;
-    ball.speed = 12;
+    ball.speed = 7;
   } else if (difficutly === "medium") {
     ball.x = canvas.width / 2;
     ball.y = canvas.height / 2;
     ball.velocityX = -ball.velocityX;
-    ball.speed = 17;
+    ball.speed = 10;
   } else {
     ball.x = canvas.width / 2;
     ball.y = canvas.height / 2;
     ball.velocityX = -ball.velocityX;
-    ball.speed = 20;
+    ball.speed = 12;
   }
 }
 
@@ -181,7 +199,7 @@ function update() {
     ball.velocityX = direction * ball.speed * Math.cos(angleRad);
     ball.velocityY = ball.speed * Math.sin(angleRad);
 
-    ball.speed += 0.1;
+    // ball.speed += 0.1;
   }
 }
 
@@ -214,7 +232,9 @@ let counting = 0;
 
 startBtn.addEventListener("click", () => {
   console.log(difficutly);
-  if (!difficutly || difficutly === "Game difficulty") return;
+  if (!difficutly || difficutly === "Game difficulty") {
+    return alert("please select the difficulty");
+  }
   ++counting;
   if (counting === 1) {
     console.log(counting);
@@ -227,7 +247,9 @@ endBtn.addEventListener("click", () => {
   clearInterval(loop);
 });
 restartBtn.addEventListener("click", () => {
-  console.log("yy");
+  if (!difficutly || difficutly === "Game difficulty") {
+    return alert("please select the difficulty");
+  }
   clearInterval(loop);
   counting = 0;
   difficutly = undefined;
