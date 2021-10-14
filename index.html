@@ -17,7 +17,48 @@
     <header>
       <a href="/"><img class="logo" src="./images/pingo-game.svg" alt="Pingo logo" width="100"/></a>
 
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <!-- <select class="select">
+        <option selected>Game difficulty</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="difficult">Difficult</option>
+      </select> -->
+    </header>
+    <!-- <div class="settings">
+      <button class="btn btn--start" type="button">Start</button>
+      <button class="btn btn--end" type="button">Pause</button>
+      <button class="btn btn--restart" type="button">Reset</button>
+    </div> -->
+    <!-- <section class="main">
+      <div>
+        <select class="selectPlayer hidden">
+          <option selected>Select a player</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <img src="/images//067-without-bg.png" class="killer hidden" />
+      </div>
+      <canvas id="pong" width="600" height="400"></canvas>
+      <img src="/images/com-bg.png" class="killer hidden" />
+    </section> -->
+    <section class="init">
+      <div class="game-mode">
+        <button type="button" class="btn btn--start">Start</button>
+        <select class="select selectPlayer">
+          <option selected>Select a player</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <select class="select">
+          <option selected>Game difficulty</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="difficult">Difficult</option>
+        </select>
+      </div>
+    </section>
+
+      <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -39,7 +80,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       
     </header>
 
@@ -49,9 +90,9 @@
 
     <div class="settings">
           <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary btn--start" data-toggle="modal" data-target="#exampleModal">Start game</button>
+      <!-- <button type="button" class="btn btn-primary btn--start" data-toggle="modal" data-target="#exampleModal">Start game</button>
       <button class="btn btn--end" type="button">Pause</button>
-      <button class="btn btn--restart" type="button">Restart</button>
+      <button class="btn btn--restart" type="button">Restart</button> -->
     </div>
     <canvas id="pong" width="600" height="400"></canvas>
   </body>
