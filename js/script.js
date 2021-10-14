@@ -1,9 +1,10 @@
 const canvas = document.getElementById("pong");
-const ctx = canvas.getContext("2d");
+const ctx = canvas?.getContext("2d");
 const startBtn = document.querySelector(".btn--start");
 const endBtn = document.querySelector(".btn--end");
 const restartBtn = document.querySelector(".btn--restart");
 const selectedDifficulty = document.querySelector(".select");
+const characters = document.querySelectorAll(".killer");
 
 let theScore = 0;
 
@@ -17,8 +18,8 @@ const handl = function () {};
 const p1 = new Proxy(tar, handl);
 
 const ball = {
-  x: canvas.width / 2,
-  y: canvas.height / 2,
+  x: canvas?.width / 2,
+  y: canvas?.height / 2,
   radius: 10,
   velocityX: 5,
   velocityY: 5,
@@ -57,7 +58,7 @@ selectedDifficulty.addEventListener("change", (e) => {
 });
 const user = {
   x: 0, // left side of canvas
-  y: (canvas.height - 100) / 2, // -100 the height of paddle
+  y: (canvas?.height - 100) / 2, // -100 the height of paddle
   width: 10,
   height: 100,
   score: 0,
@@ -66,8 +67,8 @@ const user = {
 
 // COM Paddle
 const com = {
-  x: canvas.width - 10, // - width of paddle
-  y: (canvas.height - 100) / 2, // -100 the height of paddle
+  x: canvas?.width - 10, // - width of paddle
+  y: (canvas?.height - 100) / 2, // -100 the height of paddle
   width: 10,
   height: 100,
   score: 0,
@@ -76,7 +77,7 @@ const com = {
 
 // const user = {
 //   x: 0,
-//   y: (canvas.height - 100) / 2,
+//   y: (canvas?.height - 100) / 2,
 //   width: 10,
 //   height: 100,
 //   score: 0,
@@ -84,8 +85,8 @@ const com = {
 // };
 
 // const com = {
-//   x: canvas.width - 10,
-//   y: (canvas.height - 100) / 2,
+//   x: canvas?.width - 10,
+//   y: (canvas?.height - 100) / 2,
 //   width: 10,
 //   height: 100,
 //   score: 0,
@@ -96,55 +97,55 @@ const proxy1 = new Proxy(user, handler);
 const proxy2 = new Proxy(com, handler);
 
 const net = {
-  x: (canvas.width - 2) / 2,
+  x: (canvas?.width - 2) / 2,
   y: 0,
-  height: canvas.height,
+  height: canvas?.height,
   width: 5,
   color: "WHITE",
 };
 
 function drawRect(x, y, w, h, color) {
   ctx.fillStyle = color;
-  ctx.fillRect(x, y, w, h);
+  ctx?.fillRect(x, y, w, h);
 }
 
 function drawArc(x, y, r, color) {
-  ctx.fillStyle = color;
-  ctx.beginPath();
-  ctx.arc(x, y, r, 0, Math.PI * 2, true);
-  ctx.closePath();
-  ctx.fill();
+  ctx?.fillStyle = color;
+  ctx?.beginPath();
+  ctx?.arc(x, y, r, 0, Math.PI * 2, true);
+  ctx?.closePath();
+  ctx?.fill();
 }
 
-canvas.addEventListener("mousemove", getMousePos);
+canvas?.addEventListener("mousemove", getMousePos);
 
 function getMousePos(evt) {
-  let rect = canvas.getBoundingClientRect();
+  let rect = canvas?.getBoundingClientRect();
 
   user.y = evt.clientY - rect.top - user.height / 2;
 }
 
 function resetBall() {
   if (difficutly === "easy") {
-    ball.x = canvas.width / 2;
-    ball.y = canvas.height / 2;
+    ball.x = canvas?.width / 2;
+    ball.y = canvas?.height / 2;
     ball.velocityX = -ball.velocityX;
     ball.speed = 7;
   } else if (difficutly === "medium") {
-    ball.x = canvas.width / 2;
-    ball.y = canvas.height / 2;
+    ball.x = canvas?.width / 2;
+    ball.y = canvas?.height / 2;
     ball.velocityX = -ball.velocityX;
     ball.speed = 10;
   } else {
-    ball.x = canvas.width / 2;
-    ball.y = canvas.height / 2;
+    ball.x = canvas?.width / 2;
+    ball.y = canvas?.height / 2;
     ball.velocityX = -ball.velocityX;
     ball.speed = 12;
   }
 }
 
 function drawNet() {
-  for (let i = 0; i <= canvas.height; i += 15) {
+  for (let i = 0; i <= canvas?.height; i += 15) {
     drawRect(net.x, net.y + i, net.width, net.height, net.color);
   }
 }
@@ -181,7 +182,7 @@ function update() {
       return;
     }
     resetBall();
-  } else if (ball.x + ball.radius > canvas.width) {
+  } else if (ball.x + ball.radius > canvas?.width) {
     user.score++;
     if (user.score > 4) {
       alert("User won");
@@ -196,11 +197,11 @@ function update() {
 
   com.y += (ball.y - (com.y + com.height / 2)) * 0.15;
 
-  if (ball.y - ball.radius < 0 || ball.y + ball.radius > canvas.height) {
+  if (ball.y - ball.radius < 0 || ball.y + ball.radius > canvas?.height) {
     ball.velocityY = -ball.velocityY;
   }
 
-  let player = ball.x + ball.radius < canvas.width / 2 ? user : com;
+  let player = ball.x + ball.radius < canvas?.width / 2 ? user : com;
 
   if (collision(ball, player)) {
     let collidePoint = ball.y - (player.y + player.height / 2);
@@ -208,7 +209,7 @@ function update() {
 
     let angleRad = (Math.PI / 4) * collidePoint;
 
-    let direction = ball.x + ball.radius < canvas.width / 2 ? 1 : -1;
+    let direction = ball.x + ball.radius < canvas?.width / 2 ? 1 : -1;
     ball.velocityX = direction * ball.speed * Math.cos(angleRad);
     ball.velocityY = ball.speed * Math.sin(angleRad);
 
@@ -217,14 +218,18 @@ function update() {
 }
 
 function render() {
-  drawRect(0, 0, canvas.width, canvas.height, "#f9861a");
+  drawRect(0, 0, canvas?.width, canvas?.height, "#f9861a");
 
-  drawText("Player" + ": " + user.score, canvas.width / 4.8, canvas.height / 5);
+  drawText(
+    "Player" + ": " + user.score,
+    canvas?.width / 4.8,
+    canvas?.height / 5
+  );
 
   drawText(
     "Com" + ": " + com.score,
-    (3 * canvas.width) / 4.3,
-    canvas.height / 5
+    (3 * canvas?.width) / 4.3,
+    canvas?.height / 5
   );
 
   drawNet();
@@ -244,10 +249,13 @@ let loop;
 let counting = 0;
 
 startBtn.addEventListener("click", () => {
-  console.log(difficutly);
+  console.log("jajajajajjajaj");
   if (!difficutly || difficutly === "Game difficulty") {
     return alert("please select the difficulty");
   }
+  characters.forEach((c) => {
+    c.classList.remove("hidden");
+  });
   ++counting;
   if (counting === 1) {
     console.log(counting);
@@ -255,7 +263,7 @@ startBtn.addEventListener("click", () => {
   }
 });
 
-endBtn.addEventListener("click", () => {
+endBtn?.addEventListener("click", () => {
   counting = 0;
   clearInterval(loop);
 });
@@ -264,19 +272,25 @@ const restartFn = () => {
   if (!difficutly || difficutly === "Game difficulty") {
     return alert("please select the difficulty");
   }
+  characters.forEach((c) => {
+    c.classList.remove("hidden");
+  });
   clearInterval(loop);
   counting = 0;
   difficutly = undefined;
   selectedDifficulty.value = "Game difficulty";
   proxy1.score = 0;
   proxy1.x = 0;
-  proxy1.y = (canvas.height - 100) / 2;
+  proxy1.y = (canvas?.height - 100) / 2;
   proxy2.score = 0;
-  proxy2.x = canvas.width - 10;
-  proxy2.y = (canvas.height - 100) / 2;
+  proxy2.x = canvas?.width - 10;
+  proxy2.y = (canvas?.height - 100) / 2;
   resetBall();
   game();
 };
-restartBtn.addEventListener("click", () => {
+restartBtn?.addEventListener("click", () => {
   restartFn();
+});
+document.querySelector(".selectPlayer").addEventListener("change", (e) => {
+  console.log(e.target.value);
 });
