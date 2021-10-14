@@ -5,6 +5,8 @@ const endBtn = document.querySelector(".btn--end");
 const restartBtn = document.querySelector(".btn--restart");
 const selectedDifficulty = document.querySelector(".select");
 
+let theScore = 0;
+
 let difficutly;
 const tar = {
   difficutly: "easy",
@@ -172,9 +174,20 @@ function collision(b, p) {
 function update() {
   if (ball.x - ball.radius < 0) {
     com.score++;
+
+    if (com.score > 4) {
+      alert("computer won");
+      restartFn();
+      return;
+    }
     resetBall();
   } else if (ball.x + ball.radius > canvas.width) {
     user.score++;
+    if (user.score > 4) {
+      alert("User won");
+      restartFn();
+      return;
+    }
     resetBall();
   }
 
@@ -246,7 +259,8 @@ endBtn.addEventListener("click", () => {
   counting = 0;
   clearInterval(loop);
 });
-restartBtn.addEventListener("click", () => {
+
+const restartFn = () => {
   if (!difficutly || difficutly === "Game difficulty") {
     return alert("please select the difficulty");
   }
@@ -262,4 +276,7 @@ restartBtn.addEventListener("click", () => {
   proxy2.y = (canvas.height - 100) / 2;
   resetBall();
   game();
+};
+restartBtn.addEventListener("click", () => {
+  restartFn();
 });
