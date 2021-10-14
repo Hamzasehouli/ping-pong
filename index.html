@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon-pingo.svg" type="image/x-icon" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -15,7 +15,7 @@
   </head>
   <body>
     <header>
-      <a href="/"><img class="logo" src="./pingo.png" alt="Pingo logo" width="100"/></a>
+      <a href="/"><img class="logo" src="./images/pingo-game.svg" alt="Pingo logo" width="100"/></a>
 
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -35,7 +35,7 @@
               </select>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn--start text-white" data-dismiss="modal">Start</button>
+              <button type="button" class="btn btn--start" data-dismiss="modal">Start</button>
             </div>
           </div>
         </div>
@@ -49,9 +49,9 @@
 
     <div class="settings">
           <!-- Button trigger modal -->
-      <button type="button" class="btn btn--start text-white m-2" data-toggle="modal" data-target="#exampleModal">Start game</button>
-      <button class="btn btn-primary btn--end m-2" type="button">Pause</button>
-      <button class="btn btn--restart" data-toggle="modal" data-target="#exampleModal" type="button">Restart game</button>
+      <button type="button" class="btn btn-primary btn--start" data-toggle="modal" data-target="#exampleModal">Start game</button>
+      <button class="btn btn--end" type="button">Pause</button>
+      <button class="btn btn--restart" type="button">Restart</button>
     </div>
     <canvas id="pong" width="600" height="400"></canvas>
   </body>
