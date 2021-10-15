@@ -21,6 +21,9 @@ const tar = {
 let fail = new Audio();
 fail.src = "./sounds/fail-sound.mp3";
 
+let start = new Audio();
+start.src = "./sounds/sound-game.mp3";
+
 const handl = function () {};
 
 const p1 = new Proxy(tar, handl);
@@ -280,8 +283,10 @@ startBtn.addEventListener("click", () => {
   } else if (person === "female") {
     document.querySelector(".female").classList.toggle("hidden");
   }
+  start.play();
   document.querySelector(".com").classList.remove("hidden");
   document.querySelector("body").style.background = "none";
+  
   console.log(difficutly);
   init.style.display = "none";
   settings.classList.remove("hidden");

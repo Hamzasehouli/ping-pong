@@ -76,10 +76,13 @@ header {
 
 .btn--start {
   margin-right: 0.5rem !important;
-  background-color: var(--color-primary) !important;
   font-family: 'squid', sans-serif;
 }
 
+.btn--start-style{
+  background-color: var(--color-primary) !important;
+  color:white !important;
+}
 
 .btn--restart {
   color: var(--color-primary) !important;
