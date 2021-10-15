@@ -1,0 +1,137 @@
+:root {
+  --color-primary: #e72174;
+  --color-secondary: white;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  overflow: hidden;
+  padding: 2rem;
+  background: red;
+}
+
+.select,
+.btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.select {
+  padding: 0.5rem;
+  border: 1px solid var(--color-primary);
+}
+
+header {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 2vh;
+  left: 2vw;
+}
+
+.settings {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  transition: all 0.4s !important;
+  font-size: 1.8rem !important;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.btn--start {
+  margin-right: 0.5rem !important;
+  background-color: var(--color-primary) !important;
+}
+
+.btn--restart {
+  color: var(--color-primary) !important;
+  background-color: var(--color-secondary) !important;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  padding: 0 4rem;
+}
+
+.killer {
+  width: 12rem;
+  height: auto;
+  display: block;
+  transform: scaleX(-1);
+  object-fit: cover;
+}
+.hidden {
+  display: none;
+}
+
+.init {
+  width: 50%;
+  height: 50%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.116)),
+    url("../images/squid-bg.png");
+  background-position: top;
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.315);
+}
+
+.game-mode {
+  display: flex;
+  flex-direction: column;
+}
+.game-mode > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.game-mode > * {
+  animation-name: state;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes state {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}

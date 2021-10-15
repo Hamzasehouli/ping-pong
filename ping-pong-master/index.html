@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/favicon-pingo.svg" type="image/x-icon" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script defer src="js/script.js"></script>
+    <title>Pingo</title>
+  </head>
+  <body>
+    <header>
+      <a href="/"><img class="logo" src="./images/pingo-game.svg" alt="Pingo logo" width="100"/></a>
+
+      <!-- <select class="select">
+        <option selected>Game difficulty</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="difficult">Difficult</option>
+      </select> -->
+    </header>
+    <!-- <div class="settings">
+      <button class="btn btn--start" type="button">Start</button>
+      <button class="btn btn--end" type="button">Pause</button>
+      <button class="btn btn--restart" type="button">Reset</button>
+    </div> -->
+    <!-- <section class="main">
+      <div>
+        <select class="selectPlayer hidden">
+          <option selected>Select a player</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <img src="/images//067-without-bg.png" class="killer hidden" />
+      </div>
+      <canvas id="pong" width="600" height="400"></canvas>
+      <img src="/images/com-bg.png" class="killer hidden" />
+    </section> -->
+    <section class="init">
+      <div class="game-mode">
+        <button type="button" class="btn btn--start">Start</button>
+        <select class="select selectPlayer">
+          <option selected>Select a player</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <select class="select selectDifficulty">
+          <option selected>Game difficulty</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="difficult">Difficult</option>
+        </select>
+      </div>
+    </section>
+
+      <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Choose difficult</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <select class="select">
+                <option selected>Game difficulty</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="difficult">Difficult</option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn--start" data-dismiss="modal">Start</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      
+    </header>
+
+
+
+<!-- Modal -->
+
+    <div class="settings">
+          <!-- Button trigger modal -->
+      <!-- <button type="button" class="btn btn-primary btn--start" data-toggle="modal" data-target="#exampleModal">Start game</button>
+      <button class="btn btn--end" type="button">Pause</button>
+      <button class="btn btn--restart" type="button">Restart</button> -->
+    </div>
+    <section class="main">
+    <canvas id="pong" width="600" height="400"></canvas>
+  </section>
+  </body>
+</html>
