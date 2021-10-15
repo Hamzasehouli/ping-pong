@@ -29,6 +29,10 @@ body {
   background-size: cover;
 }
 
+/* .logo{
+  display: none;
+} */
+
 .select,
 .btn {
   outline: none;

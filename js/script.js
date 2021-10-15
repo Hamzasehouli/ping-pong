@@ -269,7 +269,9 @@ startBtn.addEventListener("click", () => {
   if (!difficutly || difficutly === "Game difficulty") {
     return alert("please select the difficulty");
   }
-  document.querySelector('body').style.background = 'none'
+  document.querySelector('body').style.background = 'none';
+
+  
   console.log(difficutly);
   init.style.display = "none";
   characters.forEach((c) => {
@@ -280,6 +282,7 @@ startBtn.addEventListener("click", () => {
     console.log(counting);
     loop = setInterval(game, 1000 / framePerSecond);
   }
+  
 });
 
 endBtn?.addEventListener("click", () => {
