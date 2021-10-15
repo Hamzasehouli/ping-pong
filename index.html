@@ -43,7 +43,7 @@
     </section> -->
     <section class="init">
       <div class="game-mode">
-        <button type="button" class="btn btn--start">Start</button>
+        <button type="button" class="btn btn--start btn--start-style">Start</button>
         <select class="select selectPlayer">
           <option selected>Select a player</option>
           <option value="male">Male</option>
@@ -90,12 +90,15 @@
 
     <div class="settings hidden">
           <!-- Button trigger modal -->
-       <button type="button" class="btn btn--start-game" >Start game</button>
+       <button type="button" class="btn btn--start-game btn--start-style" >Start game</button>
       <button class="btn btn--end" type="button">Pause</button>
       <button class="btn btn--restart" type="button">Restart</button> 
     </div>
     <section class="main">
+      <img class="killer female hidden" src="images/067-without-bg.png ">
+      <img class="killer male hidden" src="images/456-without-bg.png">
     <canvas id="pong" width="600" height="400"></canvas>
+    <img class="killer com hidden" src="images/com-bg.png">
   </section>
   </body>
 </html>

@@ -4,7 +4,7 @@
 }
 
 :root {
-  --color-primary: #E72174;
+  --color-primary: #e72174;
   --color-secondary: white;
 }
 
@@ -29,10 +29,6 @@ body {
   background-size: cover;
 }
 
-/* .logo{
-  display: none;
-} */
-
 .select,
 .btn {
   outline: none;
@@ -41,6 +37,7 @@ body {
 }
 
 .select {
+  font-size: large;
   padding: 0.5rem;
   border: 1px solid var(--color-primary);
 }
@@ -58,6 +55,7 @@ header {
   position: relative;
   top: 2vh;
   left: 2vw;
+  display: none;
 }
 
 .settings {
@@ -67,20 +65,20 @@ header {
 }
 
 .btn {
-  transition: all 0.4s !important; 
-  font-size: 1.8rem !important;
+  transition: all 0.4s !important;
+  font-size: 3rem !important;
 }
 
 .btn:hover {
   transform: scale(1.1);
 }
 
-.btn--start {
+.btn--start-style {
   margin-right: 0.5rem !important;
   background-color: var(--color-primary) !important;
-  font-family: 'squid', sans-serif;
+  font-family: "squid", sans-serif;
+  color: white !important;
 }
-
 
 .btn--restart {
   color: var(--color-primary) !important;
@@ -98,12 +96,8 @@ header {
 .killer {
   width: 12rem;
   height: auto;
-  display: block;
   transform: scaleX(-1);
   object-fit: cover;
-}
-.hidden {
-  display: none;
 }
 
 .init {
@@ -118,11 +112,13 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'squid', sans-serif;
+  font-family: "squid", sans-serif;
 }
 
-select{
-  font-size: 30 px;
+select {
+  font-size: large;
+  padding: 0.5rem;
+  border: 1px solid var(--color-primary);
 }
 
 .game-mode {
@@ -149,4 +145,8 @@ select{
   100% {
     transform: scale(0.9);
   }
+}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
 }
