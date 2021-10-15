@@ -37,6 +37,7 @@ body {
 }
 
 .select {
+  font-size: large;
   padding: 0.5rem;
   border: 1px solid var(--color-primary);
 }
@@ -54,6 +55,7 @@ header {
   position: relative;
   top: 2vh;
   left: 2vw;
+  display: none;
 }
 
 .settings {
@@ -64,7 +66,7 @@ header {
 
 .btn {
   transition: all 0.4s !important;
-  font-size: 1.8rem !important;
+  font-size: 3rem !important;
 }
 
 .btn:hover {
@@ -114,7 +116,9 @@ header {
 }
 
 select {
-  font-size: 30 px;
+  font-size: large;
+  padding: 0.5rem;
+  border: 1px solid var(--color-primary);
 }
 
 .game-mode {
