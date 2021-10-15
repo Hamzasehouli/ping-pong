@@ -235,7 +235,7 @@ function update() {
 }
 
 function render() {
-  drawRect(0, 0, canvas?.width, canvas?.height, "#f9861a");
+  drawRect(0, 0, canvas?.width, canvas?.height, "#02B5B5");
 
   drawText(
     "Player" + ": " + user.score,
@@ -269,6 +269,7 @@ startBtn.addEventListener("click", () => {
   if (!difficutly || difficutly === "Game difficulty") {
     return alert("please select the difficulty");
   }
+  document.querySelector('body').style.background = 'none'
   console.log(difficutly);
   init.style.display = "none";
   characters.forEach((c) => {

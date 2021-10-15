@@ -1,10 +1,5 @@
-@font-face {
-  font-family: "squid";
-  src: url(squid/squid.ttf);
-}
-
 :root {
-  --color-primary: #E72174;
+  --color-primary: #e72174;
   --color-secondary: white;
 }
 
@@ -24,9 +19,7 @@ body {
   font-size: 1.6rem;
   overflow: hidden;
   padding: 2rem;
-  background: url("../images/bg-png.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: red;
 }
 
 .select,
@@ -63,7 +56,7 @@ header {
 }
 
 .btn {
-  transition: all 0.4s !important; 
+  transition: all 0.4s !important;
   font-size: 1.8rem !important;
 }
 
@@ -74,9 +67,7 @@ header {
 .btn--start {
   margin-right: 0.5rem !important;
   background-color: var(--color-primary) !important;
-  font-family: 'squid', sans-serif;
 }
-
 
 .btn--restart {
   color: var(--color-primary) !important;
@@ -105,20 +96,18 @@ header {
 .init {
   width: 50%;
   height: 50%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.116)),
+    url("../images/squid-bg.png");
   background-position: top;
   background-size: cover;
   position: absolute;
-  top: 70%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'squid', sans-serif;
-}
-
-select{
-  font-size: 30 px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.315);
 }
 
 .game-mode {
