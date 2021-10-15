@@ -94,13 +94,19 @@ header {
   padding: 0 4rem;
 }
 
-.killer {
+.killer  {
   width: 12rem;
   height: auto;
   display: block;
   transform: scaleX(-1);
   object-fit: cover;
 }
+
+.com {
+  position: relative;
+  bottom: 10vh;
+}
+
 .hidden {
   display: none;
 }
