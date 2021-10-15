@@ -10,6 +10,7 @@ const characters = document.querySelectorAll(".killer");
 const init = document.querySelector(".init");
 const settings = document.querySelector(".settings");
 
+
 let theScore = 0;
 
 let difficutly;
@@ -17,6 +18,10 @@ let person;
 const tar = {
   difficutly: "easy",
 };
+
+let fail = new Audio();
+fail.src = "./sounds/fail-sound.mp3";
+
 
 const handl = function () {};
 
@@ -196,6 +201,7 @@ function update() {
     com.score++;
 
     if (com.score > 4) {
+      fail.play();
       alert("computer won");
       restartFn();
       return;
