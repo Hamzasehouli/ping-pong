@@ -5,11 +5,10 @@ const startBtn1 = document.querySelector(".btn--start-game");
 const endBtn = document.querySelector(".btn--end");
 const restartBtn = document.querySelector(".btn--restart");
 const selectedDifficulty = document.querySelector(".selectDifficulty");
-const slectedPlayer = document.querySelector(".selectPlayer");
+const selectedPlayer = document.querySelector(".selectPlayer");
 const characters = document.querySelectorAll(".killer");
 const init = document.querySelector(".init");
 const settings = document.querySelector(".settings");
-
 
 let theScore = 0;
 
@@ -21,7 +20,6 @@ const tar = {
 
 let fail = new Audio();
 fail.src = "./sounds/fail-sound.mp3";
-
 
 const handl = function () {};
 
@@ -67,18 +65,9 @@ selectedDifficulty.addEventListener("change", (e) => {
   }
 });
 
-// selectedPlayer.addEventListener("change", (e) => {
-//   person = e.target.value;
-//   if (difficutly === "easy") {
-//     proxy.velocityX = 5;
-//     proxy.velocityY = 5;
-//     proxy.speed = 7;
-//   } else {
-//     proxy.velocityX = 9;
-//     proxy.velocityY = 9;
-//     proxy.speed = 12;
-//   }
-// });
+selectedPlayer.addEventListener("change", (e) => {
+  person = e.target.value;
+});
 
 const user = {
   x: 0, // left side of canvas
@@ -202,8 +191,11 @@ function update() {
     com.score++;
 
     if (com.score > 4) {
-     fail.play();
-      alert("computer won") ;
+      fail.play();
+      setTimeout(() => {
+        alert("computer won");
+      }, 1000);
+
       restartFn();
       return;
     }
@@ -275,16 +267,28 @@ let loop;
 let counting = 0;
 
 startBtn.addEventListener("click", () => {
-  if (!difficutly || difficutly === "Game difficulty") {
-    return alert("please select the difficulty");
+  if (
+    !difficutly ||
+    difficutly === "Game difficulty" ||
+    !person ||
+    person === "select a player"
+  ) {
+    return alert("please select the difficulty and player");
   }
+
+  if (person === "male") {
+    document.querySelector(".male").classList.toggle("hidden");
+  } else if (person === "female") {
+    document.querySelector(".female").classList.toggle("hidden");
+  }
+  document.querySelector(".com").classList.remove("hidden");
   document.querySelector("body").style.background = "none";
   console.log(difficutly);
   init.style.display = "none";
   settings.classList.remove("hidden");
-  characters.forEach((c) => {
-    c.classList.remove("hidden");
-  });
+  // characters.forEach((c) => {
+  //   c.classList.remove("hidden");
+  // });
   ++counting;
   if (counting === 1) {
     console.log(counting);
@@ -292,22 +296,31 @@ startBtn.addEventListener("click", () => {
   }
 });
 startBtn1.addEventListener("click", () => {
+  document.querySelector(".male").classList.add("hidden");
+  document.querySelector(".female").classList.add("hidden");
   if (!difficutly || difficutly === "Game difficulty") {
-    return alert("please select the difficulty");
+    return alert("please select the difficulty and player");
   }
+
+  console.log(person);
+
+  if (person === "male") {
+    document.querySelector(".male").classList.remove("hidden");
+  } else if (person === "female") {
+    document.querySelector(".female").classList.remove("hidden");
+  }
+
   document.querySelector("body").style.background = "none";
-  console.log(difficutly);
   init.style.display = "none";
   settings.classList.remove("hidden");
-  characters.forEach((c) => {
-    c.classList.remove("hidden");
-  });
+  // characters.forEach((c) => {
+  //   c.classList.remove("hidden");
+  // });
   ++counting;
   if (counting === 1) {
     console.log(counting);
     loop = setInterval(game, 1000 / framePerSecond);
   }
-  
 });
 
 endBtn?.addEventListener("click", () => {
@@ -319,13 +332,11 @@ const restartFn = () => {
   if (!difficutly || difficutly === "Game difficulty") {
     return alert("please select the difficulty");
   }
-  characters.forEach((c) => {
-    c.classList.remove("hidden");
-  });
+
   clearInterval(loop);
   counting = 0;
-  difficutly = undefined;
-  selectedDifficulty.value = "Game difficulty";
+  // difficutly = undefined;
+  // selectedDifficulty.value = "Game difficulty";
   proxy1.score = 0;
   proxy1.x = 0;
   proxy1.y = (canvas?.height - 100) / 2;

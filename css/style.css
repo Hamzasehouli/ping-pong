@@ -4,7 +4,7 @@
 }
 
 :root {
-  --color-primary: #E72174;
+  --color-primary: #e72174;
   --color-secondary: white;
 }
 
@@ -28,7 +28,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 
 .select,
 .btn {
@@ -66,7 +65,7 @@ header {
 }
 
 .btn {
-  transition: all 0.4s !important; 
+  transition: all 0.4s !important;
   font-size: 3rem !important;
 }
 
@@ -74,12 +73,12 @@ header {
   transform: scale(1.1);
 }
 
-.btn--start {
+.btn--start-style {
   margin-right: 0.5rem !important;
   background-color: var(--color-primary) !important;
-  font-family: 'squid', sans-serif;
+  font-family: "squid", sans-serif;
+  color: white !important;
 }
-
 
 .btn--restart {
   color: var(--color-primary) !important;
@@ -97,12 +96,8 @@ header {
 .killer {
   width: 12rem;
   height: auto;
-  display: block;
   transform: scaleX(-1);
   object-fit: cover;
-}
-.hidden {
-  display: none;
 }
 
 .init {
@@ -117,10 +112,10 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'squid', sans-serif;
+  font-family: "squid", sans-serif;
 }
 
-select{
+select {
   font-size: large;
   padding: 0.5rem;
   border: 1px solid var(--color-primary);
@@ -150,4 +145,8 @@ select{
   100% {
     transform: scale(0.9);
   }
+}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
 }
