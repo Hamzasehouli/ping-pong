@@ -1,6 +1,7 @@
 const canvas = document.getElementById("pong");
 const ctx = canvas?.getContext("2d");
 const startBtn = document.querySelector(".btn--start");
+const startBtn1 = document.querySelector(".btn--start-game");
 const endBtn = document.querySelector(".btn--end");
 const restartBtn = document.querySelector(".btn--restart");
 const selectedDifficulty = document.querySelector(".selectDifficulty");
@@ -267,6 +268,23 @@ let loop;
 let counting = 0;
 
 startBtn.addEventListener("click", () => {
+  if (!difficutly || difficutly === "Game difficulty") {
+    return alert("please select the difficulty");
+  }
+  document.querySelector("body").style.background = "none";
+  console.log(difficutly);
+  init.style.display = "none";
+  settings.classList.remove("hidden");
+  characters.forEach((c) => {
+    c.classList.remove("hidden");
+  });
+  ++counting;
+  if (counting === 1) {
+    console.log(counting);
+    loop = setInterval(game, 1000 / framePerSecond);
+  }
+});
+startBtn1.addEventListener("click", () => {
   if (!difficutly || difficutly === "Game difficulty") {
     return alert("please select the difficulty");
   }
