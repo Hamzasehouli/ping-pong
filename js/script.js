@@ -196,13 +196,14 @@ function collision(b, p) {
   );
 }
 
+
 function update() {
   if (ball.x - ball.radius < 0) {
     com.score++;
 
     if (com.score > 4) {
-      fail.play();
-      alert("computer won");
+     fail.play();
+      alert("computer won") ;
       restartFn();
       return;
     }
