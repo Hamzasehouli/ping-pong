@@ -3,12 +3,15 @@ const ctx = canvas?.getContext("2d");
 const startBtn = document.querySelector(".btn--start");
 const endBtn = document.querySelector(".btn--end");
 const restartBtn = document.querySelector(".btn--restart");
-const selectedDifficulty = document.querySelector(".select");
+const selectedDifficulty = document.querySelector(".selectDifficulty");
+const slectedPlayer = document.querySelector(".selectPlayer");
 const characters = document.querySelectorAll(".killer");
+const init = document.querySelector(".init");
 
 let theScore = 0;
 
 let difficutly;
+let person;
 const tar = {
   difficutly: "easy",
 };
@@ -56,6 +59,20 @@ selectedDifficulty.addEventListener("change", (e) => {
     proxy.speed = 12;
   }
 });
+
+// selectedPlayer.addEventListener("change", (e) => {
+//   person = e.target.value;
+//   if (difficutly === "easy") {
+//     proxy.velocityX = 5;
+//     proxy.velocityY = 5;
+//     proxy.speed = 7;
+//   } else {
+//     proxy.velocityX = 9;
+//     proxy.velocityY = 9;
+//     proxy.speed = 12;
+//   }
+// });
+
 const user = {
   x: 0, // left side of canvas
   y: (canvas?.height - 100) / 2, // -100 the height of paddle
@@ -110,11 +127,11 @@ function drawRect(x, y, w, h, color) {
 }
 
 function drawArc(x, y, r, color) {
-  ctx?.fillStyle = color;
-  ctx?.beginPath();
-  ctx?.arc(x, y, r, 0, Math.PI * 2, true);
-  ctx?.closePath();
-  ctx?.fill();
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2, true);
+  ctx.closePath();
+  ctx.fill();
 }
 
 canvas?.addEventListener("mousemove", getMousePos);
@@ -151,7 +168,7 @@ function drawNet() {
 }
 
 function drawText(text, x, y) {
-  ctx.fillStyle = "#f9861a";
+  ctx.fillStyle = "#FFF";
   ctx.font = "22px fantasy";
   ctx.fillText(text, x, y);
 }
@@ -218,7 +235,7 @@ function update() {
 }
 
 function render() {
-  drawRect(0, 0, canvas?.width, canvas?.height, "#f9861a");
+  drawRect(0, 0, canvas?.width, canvas?.height, "#02B5B5");
 
   drawText(
     "Player" + ": " + user.score,
@@ -249,10 +266,12 @@ let loop;
 let counting = 0;
 
 startBtn.addEventListener("click", () => {
-  console.log("jajajajajjajaj");
   if (!difficutly || difficutly === "Game difficulty") {
     return alert("please select the difficulty");
   }
+  document.querySelector('body').style.background = 'none'
+  console.log(difficutly);
+  init.style.display = "none";
   characters.forEach((c) => {
     c.classList.remove("hidden");
   });
