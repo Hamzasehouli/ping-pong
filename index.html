@@ -46,8 +46,8 @@
         <button type="button" class="btn btn--start btn--start-style">Start</button>
         <select class="select selectPlayer">
           <option selected>Select a player</option>
-          <option value="male">PLAYER 456</option>
-          <option value="female">PLAYER 067</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
         </select>
         <select class="select selectDifficulty">
           <option selected>Game difficulty</option>
@@ -100,55 +100,5 @@
     <canvas id="pong" width="600" height="400"></canvas>
     <img class="killer com hidden" src="images/com-bg.png">
   </section>
-
-
-
-  <script>
-    function functionAlert(msg, myYes) {
-       var confirmBox = $("#confirm");
-       confirmBox.find(".message").text(msg);
-       confirmBox.find(".yes").unbind().click(function() {
-          confirmBox.hide();
-       });
-       confirmBox.find(".yes").click(myYes);
-       confirmBox.show();
-    }
- </script>
-
-<style>
-  #confirm  {
-     display: none;
-     background: url("images/");
-     color: #FCD116;
-     border: 1px solid #aaa;
-     position: fixed;
-     width: 250px;
-     left: 50%;
-     margin-left: -100px;
-     padding: 6px 8px 8px;
-     box-sizing: border-box;
-     text-align: center;
-  }
-  #confirm button {
-     background-color: #48E5DA;
-     display: inline-block;
-     border-radius: 5px;
-     border: 1px solid #aaa;
-     padding: 5px;
-     text-align: center;
-     width: 80px;
-     cursor: pointer;
-  }
-  #confirm .message {
-     text-align: left;
-  }
-</style>
-
-<div id="confirm">
-  <div class="message">This is a warning message.</div>
-  <button class="yes">OK</button>
-</div>
-<input type="button" value="Click Me" onclick="functionAlert();" />
-
   </body>
 </html>

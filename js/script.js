@@ -185,7 +185,6 @@ function collision(b, p) {
   );
 }
 
-
 function update() {
   if (ball.x - ball.radius < 0) {
     com.score++;
