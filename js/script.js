@@ -7,6 +7,7 @@ const selectedDifficulty = document.querySelector(".selectDifficulty");
 const slectedPlayer = document.querySelector(".selectPlayer");
 const characters = document.querySelectorAll(".killer");
 const init = document.querySelector(".init");
+const settings = document.querySelector(".settings");
 
 let theScore = 0;
 
@@ -269,9 +270,10 @@ startBtn.addEventListener("click", () => {
   if (!difficutly || difficutly === "Game difficulty") {
     return alert("please select the difficulty");
   }
-  document.querySelector('body').style.background = 'none'
+  document.querySelector("body").style.background = "none";
   console.log(difficutly);
   init.style.display = "none";
+  settings.classList.remove("hidden");
   characters.forEach((c) => {
     c.classList.remove("hidden");
   });
